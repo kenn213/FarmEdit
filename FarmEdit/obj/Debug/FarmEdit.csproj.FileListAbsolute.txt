@@ -1,0 +1,17 @@
+C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\bin\Debug\FarmEdit.exe.config
+C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\bin\Debug\FarmEdit.exe
+C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\bin\Debug\FarmEdit.pdb
+C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\obj\Debug\FarmEdit.csprojAssemblyReference.cache
+C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\obj\Debug\MainWindow.g.cs
+C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\obj\Debug\App.g.cs
+C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\obj\Debug\FarmEdit_Content.g.cs
+C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\obj\Debug\FarmEdit_MarkupCompile.cache
+C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\obj\Debug\FarmEdit_MarkupCompile.lref
+C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\obj\Debug\App.baml
+C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\obj\Debug\MainWindow.baml
+C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\obj\Debug\FarmEdit.g.resources
+C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\obj\Debug\FarmEdit.Properties.Resources.resources
+C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\obj\Debug\FarmEdit.csproj.GenerateResource.cache
+C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\obj\Debug\FarmEdit.csproj.CoreCompileInputs.cache
+C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\obj\Debug\FarmEdit.exe
+C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\obj\Debug\FarmEdit.pdb

@@ -1,0 +1,75 @@
+﻿<Window x:Class="FarmEdit.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FarmEdit"
+        xmlns:properties="clr-namespace:FarmEdit.Properties"
+        mc:Ignorable="d"
+        Title="Farm Edit" Height="500" Width="700" MinHeight="100" MinWidth="600">
+    <TabControl SelectedIndex="1">
+        <TabItem x:Name="tiMaps" IsEnabled="False">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="tbIconMap" Text="&#xf279;" FontFamily="{StaticResource FASolid}" Foreground="Black" FontSize="26" Margin="10,10,0,10" VerticalAlignment="Center"></TextBlock>
+                    <TextBlock Text="Maps" FontSize="26" Margin="10" VerticalAlignment="Center"></TextBlock>
+                </StackPanel>
+            </TabItem.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </TabItem>
+        <TabItem x:Name="tiSaves" GotFocus="tiSaves_GotFocus">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="tbFontAwesome11" Text="&#xf0c7;" FontFamily="{StaticResource FASolid}" Foreground="Black" FontSize="32" Margin="10,10,0,10" VerticalAlignment="Center"></TextBlock>
+                    <TextBlock Text="Saves" FontSize="26" Margin="10" VerticalAlignment="Center"></TextBlock>
+                    <!--<Button Name="savegame1" Click="LoadSingleSave_Click">C</Button>-->
+                </StackPanel>
+            </TabItem.Header>
+            <StackPanel Name="spSavesList" />
+        </TabItem>
+        <TabItem x:Name="tiSettings">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="tbFontAwesome111" Text="&#xf013;" FontFamily="{StaticResource FASolid}" Foreground="Black" FontSize="32" Margin="10,10,0,10" VerticalAlignment="Center"></TextBlock>
+                    <TextBlock Text="Settings" FontSize="26" Margin="10" VerticalAlignment="Center"></TextBlock>
+                </StackPanel>
+            </TabItem.Header>
+            <StackPanel Margin="8,0">
+                <Border BorderThickness="0,0,0,2" BorderBrush="#333"><TextBlock FontSize="30">General</TextBlock></Border>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,8">
+                    <TextBlock FontSize="16">Farming Simulator 17 Folder:</TextBlock>
+                    <TextBox FontSize="14" IsReadOnly="True" HorizontalAlignment="Stretch" Margin="8,0" Text="{Binding Source={x:Static properties:Settings.Default}, Path=fs_17_install_folder}" Width="391" />
+                    <Button FontSize="14">Change</Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="16">Farming Simulator 17 Saves Folder:</TextBlock>
+                    <TextBox FontSize="14" IsReadOnly="True" HorizontalAlignment="Stretch" Margin="8,0" Text="{Binding Source={x:Static properties:Settings.Default}, Path=fs_17_save_folder}" Width="347" />
+                    <Button FontSize="14">Change</Button>
+                </StackPanel>
+            </StackPanel>
+        </TabItem>
+        <TabItem x:Name="tiAbout">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="tbFontAwesome2" Text="&#xf05a;" FontFamily="{StaticResource FASolid}" Foreground="Black" FontSize="32" Margin="10,10,0,10" VerticalAlignment="Center"></TextBlock>
+                    <TextBlock Text="About" FontSize="26" Margin="10" VerticalAlignment="Center"></TextBlock>
+                </StackPanel>
+            </TabItem.Header>
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock HorizontalAlignment="Center" FontSize="50">FarmEdit</TextBlock>
+                <TextBlock HorizontalAlignment="Center" FontSize="16" Margin="0,20,0,10">Version: 1.0</TextBlock>
+                <TextBlock HorizontalAlignment="Center" FontSize="16">Documentation:</TextBlock>
+                <TextBlock HorizontalAlignment="Center" FontSize="16"><Hyperlink NavigateUri="http://www.farmedit.net" RequestNavigate="Hyperlink_RequestNavigate">FarmEdit Website</Hyperlink></TextBlock>
+                <TextBlock HorizontalAlignment="Center" FontSize="16" Margin="0,10,0,0">Distributed Freely By:</TextBlock>
+                <TextBlock HorizontalAlignment="Center" FontSize="16"><Hyperlink NavigateUri="https://www.coastlineapplications.com" RequestNavigate="Hyperlink_RequestNavigate">Coastline Applications</Hyperlink></TextBlock>
+            </StackPanel>     
+        </TabItem>
+    </TabControl>
+</Window>

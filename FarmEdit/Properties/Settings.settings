@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="FarmEdit.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="fs_17_install_folder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Program Files\Farming Simulator 17\</Value>
+    </Setting>
+    <Setting Name="fs_17_save_folder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\kennedy\Documents\My Games\FarmingSimulator2017</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,11 @@
+﻿<Application x:Class="FarmEdit.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:FarmEdit"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <FontFamily x:Key="FALight">/Fonts/fa-light-300.ttf#Font Awesome 5 Pro Light</FontFamily>
+        <FontFamily x:Key="FARegular">/Fonts/fa-regular-400.ttf#Font Awesome 5 Pro Regular</FontFamily>
+        <FontFamily x:Key="FASolid">/Fonts/fa-solid-900.ttf#Font Awesome 5 Pro Solid</FontFamily>
+    </Application.Resources>
+</Application>
