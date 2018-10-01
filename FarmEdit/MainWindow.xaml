@@ -6,37 +6,44 @@
         xmlns:local="clr-namespace:FarmEdit"
         xmlns:properties="clr-namespace:FarmEdit.Properties"
         mc:Ignorable="d"
-        Title="Farm Edit" Height="500" Width="700" MinHeight="100" MinWidth="600">
-    <TabControl SelectedIndex="1">
-        <TabItem x:Name="tiMaps" IsEnabled="False">
+        Title="Farm Edit" Height="500" Width="750" MinHeight="100" MinWidth="750" Icon="Images/farmedit.png">
+    <TabControl SelectedIndex="0" TabStripPlacement="Left">
+        <TabItem x:Name="tiGame" HorizontalAlignment="Left" Width="170">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="tbIconGame" Text="&#xf109;" FontFamily="{StaticResource FASolid}" Foreground="Black" FontSize="26" Margin="10,10,0,10" VerticalAlignment="Center"></TextBlock>
+                    <TextBlock Text="Game" FontSize="26" Margin="10" VerticalAlignment="Center"></TextBlock>
+                </StackPanel>
+            </TabItem.Header>
+        </TabItem>
+        <TabItem x:Name="tiMaps" IsEnabled="False" HorizontalAlignment="Left" Width="170">
             <TabItem.Header>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock x:Name="tbIconMap" Text="&#xf279;" FontFamily="{StaticResource FASolid}" Foreground="Black" FontSize="26" Margin="10,10,0,10" VerticalAlignment="Center"></TextBlock>
                     <TextBlock Text="Maps" FontSize="26" Margin="10" VerticalAlignment="Center"></TextBlock>
                 </StackPanel>
             </TabItem.Header>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-            </Grid>
         </TabItem>
-        <TabItem x:Name="tiSaves" GotFocus="tiSaves_GotFocus">
+        <TabItem x:Name="tiMods" IsEnabled="False" HorizontalAlignment="Left" Width="170">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="tbIconMod" Text="&#xf0ad;" FontFamily="{StaticResource FASolid}" Foreground="Black" FontSize="26" Margin="10,10,0,10" VerticalAlignment="Center"></TextBlock>
+                    <TextBlock Text="Mods" FontSize="26" Margin="10" VerticalAlignment="Center"></TextBlock>
+                </StackPanel>
+            </TabItem.Header>
+        </TabItem>
+        <TabItem x:Name="tiSaves" GotFocus="tiSaves_GotFocus" HorizontalAlignment="Left" Width="170">
             <TabItem.Header>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock x:Name="tbFontAwesome11" Text="&#xf0c7;" FontFamily="{StaticResource FASolid}" Foreground="Black" FontSize="32" Margin="10,10,0,10" VerticalAlignment="Center"></TextBlock>
                     <TextBlock Text="Saves" FontSize="26" Margin="10" VerticalAlignment="Center"></TextBlock>
-                    <!--<Button Name="savegame1" Click="LoadSingleSave_Click">C</Button>-->
                 </StackPanel>
             </TabItem.Header>
             <StackPanel Name="spSavesList" />
         </TabItem>
-        <TabItem x:Name="tiSettings">
+        <TabItem x:Name="tiSettings" HorizontalAlignment="Left" Width="170">
             <TabItem.Header>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <TextBlock x:Name="tbFontAwesome111" Text="&#xf013;" FontFamily="{StaticResource FASolid}" Foreground="Black" FontSize="32" Margin="10,10,0,10" VerticalAlignment="Center"></TextBlock>
                     <TextBlock Text="Settings" FontSize="26" Margin="10" VerticalAlignment="Center"></TextBlock>
                 </StackPanel>
@@ -55,7 +62,7 @@
                 </StackPanel>
             </StackPanel>
         </TabItem>
-        <TabItem x:Name="tiAbout">
+        <TabItem x:Name="tiAbout" HorizontalAlignment="Left" Width="170">
             <TabItem.Header>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock x:Name="tbFontAwesome2" Text="&#xf05a;" FontFamily="{StaticResource FASolid}" Foreground="Black" FontSize="32" Margin="10,10,0,10" VerticalAlignment="Center"></TextBlock>

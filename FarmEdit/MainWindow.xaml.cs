@@ -130,6 +130,17 @@ namespace FarmEdit
             };
             button.Click += new RoutedEventHandler(BackToSaves_Click);
             spSavesList.Children.Add(button);
+            TextBlock tbTitle1 = new TextBlock
+            {
+                Text = "Save: " + saveGameNum,
+                FontSize = 22,
+                Foreground = new SolidColorBrush(Colors.White),
+                Background = new SolidColorBrush(Colors.Black),
+                Padding = new Thickness(5)
+
+            };
+            spSavesList.Children.Add(tbTitle1);
+
         }
         // In event method.
         private void BackToSaves_Click(object sender, RoutedEventArgs e)
@@ -155,7 +166,7 @@ namespace FarmEdit
         }
         private void tiSaves_GotFocus(object sender, RoutedEventArgs e)
         {
-            ReloadSavesPanel();
+            //ReloadSavesPanel();
         }
     }
 }
