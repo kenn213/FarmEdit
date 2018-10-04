@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<game>
+  <language>-1</language>
+  <graphic>
+    <display>
+      <width>3440</width>
+      <height>1440</height>
+      <gamma>1</gamma>
+      <fullscreen>true</fullscreen>
+      <vsync adaptive='true'>true</vsync>
+      <userConfirmed>true</userConfirmed>
+      <previousWidth>1280</previousWidth>
+      <previousHeight>720</previousHeight>
+    </display>
+    <scalability>
+      <gpuPerformanceClass>auto</gpuPerformanceClass>
+      <skipMipmaps>0</skipMipmaps>
+      <useTrilinearFiltering>true</useTrilinearFiltering>
+      <useTerrainNormalMapping>true</useTerrainNormalMapping>
+      <anisotropy>16</anisotropy>
+      <tyreTracksSegmentsCoeff>4.000000</tyreTracksSegmentsCoeff>
+      <terrainLODDistanceCoeff>2.000000</terrainLODDistanceCoeff>
+      <viewDistanceCoeff>2.000000</viewDistanceCoeff>
+      <shadowMapFilterSize>16</shadowMapFilterSize>
+      <foliageViewDistanceCoeff>2.000000</foliageViewDistanceCoeff>
+      <msaa>8</msaa>
+      <foliageDensitySlider>1.000000</foliageDensitySlider>
+      <lodDistanceCoeff>2.000000</lodDistanceCoeff>
+      <volumeMeshTessellationCoeff>0.500000</volumeMeshTessellationCoeff>
+      <maxNumShadowLights>10</maxNumShadowLights>
+      <shadowQuality>2.000000</shadowQuality>
+    </scalability>
+    <renderer>D3D_11</renderer>
+  </graphic>
+  <audio enable='true' volume='1' />
+  <input>
+    <joystick enable='true' vibration='false' deadzone='0.14' />
+    <mouse enable='true' />
+    <keyboard enable='true' />
+    <headTracking active='true' trackir='true' tobiieyex='true' />
+  </input>
+  <logging>
+    <file enable='true' filename='log.txt' />
+    <console enable='true' />
+  </logging>
+  <development>
+    <controls>false</controls>
+  </development>
+</game>

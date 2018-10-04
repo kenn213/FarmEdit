@@ -15,3 +15,8 @@ C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\obj\Debug\FarmEdit.csproj.Ge
 C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\obj\Debug\FarmEdit.csproj.CoreCompileInputs.cache
 C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\obj\Debug\FarmEdit.exe
 C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\obj\Debug\FarmEdit.pdb
+C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\obj\Debug\Controls\SavesListItem.g.cs
+C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\obj\Debug\Controls\SavesListItem.baml
+C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\obj\Debug\Controls\SingleSave.g.cs
+C:\Users\kennedy\Documents\GitHub\FarmEdit\FarmEdit\obj\Debug\Controls\SingleSave.baml

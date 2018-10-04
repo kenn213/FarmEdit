@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
-using System.Windows.Navigation;
 using System.IO;
 using System.Xml;
 
@@ -30,17 +29,36 @@ namespace FarmEdit
             InitializeComponent();
             ReloadSavesPanel();
         }
+
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;
         }
+
+        private void DisableAllTabs()
+        {
+            tiAbout.IsEnabled = false;
+            tiGame.IsEnabled = false;
+            tiSaves.IsEnabled = false;
+            tiSettings.IsEnabled = false;
+        }
+
+        private void EnableAllTabs()
+        {
+            tiAbout.IsEnabled = true;
+            tiGame.IsEnabled = true;
+            tiSaves.IsEnabled = true;
+            tiSettings.IsEnabled = true;
+        }
+
         private void ReloadSavesPanel()
         {
             string[] files = Directory.GetDirectories(Properties.Settings.Default.fs_17_save_folder, "savegame*", SearchOption.AllDirectories);
             
             int count = 0;
-            spSavesList.Children.Clear();
+            SavesPanelGrid.Children.Clear();
+            SavesPanelGrid.RowDefinitions.Clear();
             foreach (string file in files)
             {
                 count++;
@@ -53,120 +71,77 @@ namespace FarmEdit
                 string mapTitle = node.InnerText;
                 node = doc.DocumentElement.SelectSingleNode("/careerSavegame/settings/saveDate");
                 string saveDate = node.InnerText;
-                TextBlock tbTitle1 = new TextBlock
+
+
+                Controls.SavesListItem item = new Controls.SavesListItem();
+
+                item.SetValue(Grid.RowProperty, count - 1);
+                if (count == 1)
                 {
-                    Text = "#" + count + " ",
-                    FontSize = 22,
-                    Foreground = new SolidColorBrush(Colors.White),
-                    Background = new SolidColorBrush(Colors.Black),
-                    Padding = new Thickness(5)
-                    
-                };
-                tbTitle1.SetValue(Grid.RowProperty, 0);
-                tbTitle1.SetValue(Grid.ColumnProperty, 0);
-                TextBlock tbTitle2 = new TextBlock
+                    item.Margin = new Thickness(5,5,5,8);
+                }
+                else
                 {
-                    Text = saveGameName,
-                    FontSize = 22,
-                    FontWeight = FontWeights.Bold,
-                    Padding = new Thickness(5)
-                };
-                tbTitle2.SetValue(Grid.RowProperty, 0);
-                tbTitle2.SetValue(Grid.ColumnProperty, 1);
-                TextBlock tbTitle3 = new TextBlock
+                    item.Margin = new Thickness(5,0,5,8);
+                }
+                item.tbCount.Text = "#" + count;
+                item.tbTitle.Text = saveGameName;
+                item.tbMap.Text = mapTitle;
+                item.tbDate.Text = saveDate;
+                item.btn.Click += new RoutedEventHandler(LoadSingleSave_Click);
+                item.btn.Name = "savegame" + count.ToString();
+                SavesPanelGrid.RowDefinitions.Add(new RowDefinition
                 {
-                    Text = "  " + mapTitle + "     " + saveDate,
-                    FontSize = 14,
-                    HorizontalAlignment = HorizontalAlignment.Right,
-                    Padding = new Thickness(10)
-                };
-                tbTitle3.SetValue(Grid.RowProperty, 0);
-                tbTitle3.SetValue(Grid.ColumnProperty, 2);
-                Grid btnGrid = new Grid
-                {
-                    
-                };
-                RowDefinition defaultRow = new RowDefinition();
-                btnGrid.RowDefinitions.Add(defaultRow);
-                ColumnDefinition defaultCol = new ColumnDefinition();
-                btnGrid.ColumnDefinitions.Add(defaultCol);
-                defaultCol = new ColumnDefinition();
-                btnGrid.ColumnDefinitions.Add(defaultCol);
-                defaultCol = new ColumnDefinition();
+                    Height = GridLength.Auto
+                });
+                SavesPanelGrid.Children.Add(item);
                 
-                btnGrid.ColumnDefinitions.Add(defaultCol);
-                btnGrid.Children.Add(tbTitle1);
-                btnGrid.Children.Add(tbTitle2);
-                btnGrid.Children.Add(tbTitle3);
-                StackPanel spTitle = new StackPanel
-                {
-                    Orientation = Orientation.Horizontal
-                };
-                //spTitle.Children.Add(tbTitle1);
-                //spTitle.Children.Add(tbTitle2);
-                //spTitle.Children.Add(tbTitle3);
-                Button button = new Button
-                {
-                    HorizontalContentAlignment = HorizontalAlignment.Left,
-                    Content = btnGrid,
-                    BorderBrush = new SolidColorBrush(Colors.Black),
-                    BorderThickness = new Thickness(2),
-                    Margin = new Thickness(5,5,5,0),
-                    Name = "savegame" + count.ToString()
-                };
-                button.Click += new RoutedEventHandler(LoadSingleSave_Click);
-                spSavesList.Children.Add(button);
             }
         }
+
         private void LoadSingleSavePanel(String saveGameNum)
         {
-
-            spSavesList.Children.Clear();
-            Button button = new Button
+            // Clear the saves panel
+            SavesPanelGrid.Children.Clear();
+            // Clear the saves panel's row definitions
+            SavesPanelGrid.RowDefinitions.Clear();
+            // Add 1 new row definition
+            SavesPanelGrid.RowDefinitions.Add(new RowDefinition
             {
-                HorizontalContentAlignment = HorizontalAlignment.Left,
-                Content = "Back to Saves List",
-                Margin = new Thickness(5)
-            };
-            button.Click += new RoutedEventHandler(BackToSaves_Click);
-            spSavesList.Children.Add(button);
-            TextBlock tbTitle1 = new TextBlock
-            {
-                Text = "Save: " + saveGameNum,
-                FontSize = 22,
-                Foreground = new SolidColorBrush(Colors.White),
-                Background = new SolidColorBrush(Colors.Black),
-                Padding = new Thickness(5)
+                Height = GridLength.Auto
+            });
+            
 
-            };
-            spSavesList.Children.Add(tbTitle1);
-
+            // Create a new single save display
+            Controls.SingleSave item = new Controls.SingleSave(saveGameNum);
+            
+            //item.tbTitle.Text = saveGameName;
+            item.btnBack.Click += new RoutedEventHandler(BackToSaves_Click);
+            // Add it to the grid
+            SavesPanelGrid.Children.Add(item);
+            
         }
-        // In event method.
+
         private void BackToSaves_Click(object sender, RoutedEventArgs e)
         {
             ReloadSavesPanel();
         }
-        // In event method.
+
         private void LoadSingleSave_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
-
             LoadSingleSavePanel(btn.Name);
-            /*
-            for (int i = 0; i < counter; i++)
-            {
-                if (btn.Name == ("Butt" + i))
-                {
-                    // When find specific button do what do you want.
-                    //Then exit from loop by break.
-                    break;
-                }
-            } */
         }
+
         private void tiSaves_GotFocus(object sender, RoutedEventArgs e)
         {
             //ReloadSavesPanel();
+        }
+        private void ScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            ScrollViewer scv = (ScrollViewer)sender;
+            scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta);
+            e.Handled = true;
         }
     }
 }
