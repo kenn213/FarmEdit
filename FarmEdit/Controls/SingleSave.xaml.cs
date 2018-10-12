@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Data;
 using System.IO;
 using System.Xml;
+using System.Xml.XPath;
 
 namespace FarmEdit.Controls
 {
@@ -27,12 +28,19 @@ namespace FarmEdit.Controls
         {
             InitializeComponent();
 
+            XPathDocument saveGameDoc = new XPathDocument(Properties.Settings.Default.fs_17_save_folder + @"\" + saveGame + @"\careerSavegame.xml");
+
+            XPathNavigator nav = saveGameDoc.CreateNavigator();
+
+            XPathNodeIterator xmoney = nav.Select("//money");
+
             XmlDocument doc = new XmlDocument();
             doc.Load(Properties.Settings.Default.fs_17_save_folder + @"\" + saveGame + @"\careerSavegame.xml");
 
             // Get specific node data
             XmlNode node = doc.DocumentElement.SelectSingleNode("/careerSavegame/settings/savegameName");
-            string saveGameName = node.InnerText;
+            
+            string saveGameName = doc.DocumentElement.SelectSingleNode("/careerSavegame/settings/savegameName").InnerText;
             node = doc.DocumentElement.SelectSingleNode("/careerSavegame/settings/mapTitle");
             string mapTitle = node.InnerText;
             node = doc.DocumentElement.SelectSingleNode("/careerSavegame/settings/saveDate");
@@ -42,6 +50,7 @@ namespace FarmEdit.Controls
             node = doc.DocumentElement.SelectSingleNode("/careerSavegame/statistics/loan");
             string loan = node.InnerText;
             node = doc.DocumentElement.SelectSingleNode("/careerSavegame/totalAmounts");
+
 
 
 
@@ -68,7 +77,7 @@ namespace FarmEdit.Controls
             financialTable.Columns.Add("Property", typeof(String));
             financialTable.Columns.Add("Value", typeof(String));
 
-            financialTable.Rows.Add("Current Money", money);
+            financialTable.Rows.Add("Current Money", xmoney.Current.Value);
             financialTable.Rows.Add("Current Loan", loan);
 
             // Set Weather Data

@@ -54,6 +54,7 @@ namespace FarmEdit
 
         private void ReloadSavesPanel()
         {
+
             string[] files = Directory.GetDirectories(Properties.Settings.Default.fs_17_save_folder, "savegame*", SearchOption.AllDirectories);
             
             int count = 0;
@@ -71,7 +72,6 @@ namespace FarmEdit
                 string mapTitle = node.InnerText;
                 node = doc.DocumentElement.SelectSingleNode("/careerSavegame/settings/saveDate");
                 string saveDate = node.InnerText;
-
 
                 Controls.SavesListItem item = new Controls.SavesListItem();
 

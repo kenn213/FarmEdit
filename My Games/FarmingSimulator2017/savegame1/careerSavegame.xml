@@ -113,9 +113,9 @@
         <lastRain isValid="false"/>
     </environment>
     <totalAmounts count="52">
-        <totalAmount fillType="squareBaleBarley" value="50000.000000"/>
+        <totalAmount fillType="squareBaleBarley" value="45000.000000"/>
         <totalAmount fillType="poplar" value="50000.000000"/>
-        <totalAmount fillType="woodChips" value="50000.000000"/>
+        <totalAmount fillType="woodChips" value="90000.000000"/>
         <totalAmount fillType="forage" value="50000.000000"/>
         <totalAmount fillType="sunflower" value="50000.000000"/>
         <totalAmount fillType="milk" value="50000.000000"/>
